@@ -1,0 +1,26 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+      - /tmp/.X11-unix:/tmp/.X11-unix \
+      - ~/.cache:/root/.cache
+    network_mode: service:db
+    command: sleep infinity
+    environment:
+      - DISPLAY=${IP}:0
+
+  db:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    command: [
+      '--setParameter',
+        'notablescan=1',
+    ]
+
+volumes:
+  mongo-data:

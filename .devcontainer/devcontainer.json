@@ -1,0 +1,28 @@
+{
+  "name": "nest-sample",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+        "mongodb.mongodb-vscode",
+        "Orta.vscode-jest"
+      ],
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      }
+    }
+  },
+  "remoteEnv": {
+    "EDITOR": "nano"
+  }
+}
